@@ -1,11 +1,10 @@
+import Navbar from "@/scenes/navbar"
 
 const App = () => {
   return (
-    <div>
-      <p className="text-3xl font-bold underline">
-        App
-      </p>
-      </div>
+    <div className="app bg-gray-20">
+      <Navbar />
+    </div>
   )
 }
 
