@@ -1,7 +1,11 @@
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <p className="text-3xl font-bold underline">
+        App
+      </p>
+      </div>
   )
 }
 
