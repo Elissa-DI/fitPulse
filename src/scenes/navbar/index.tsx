@@ -2,14 +2,17 @@ import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Logo from "@/assets/Logo.png";
 import Link from "./Link";
-// import { SelectedPage } from "@/shared/types";
+import { SelectedPage } from "@/shared/types";
 // import useMediaQuery from "@/hooks/useMediaQuery";
 // import ActionButton from "@/shared/ActionButton";
 
 
-type Props = {};
+type Props = {
+    selectedPage: SelectedPage;
+    setSelectedPage: (value: SelectedPage) => void;
+};
 
-const Navbar = (props: Props) => {
+const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
     const flexBetween = "flex items-center justify-between";
     return (
         <nav>
@@ -22,10 +25,26 @@ const Navbar = (props: Props) => {
                         <div className={`${flexBetween} w-full`}>
                             {/* links */}
                             <div className={`${flexBetween} gap-8 text-sm`}>
-                                <Link page="home" />
-                                <Link page="Benefits" />
-                                <Link page="Our Classes" />
-                                <Link page="Contact us" />
+                                <Link 
+                                  page="home"
+                                  selectedPage={selectedPage}
+                                  setSelectedPage={setSelectedPage}
+                                />
+                                <Link 
+                                  page="Benefits"
+                                  selectedPage={selectedPage}
+                                  setSelectedPage={setSelectedPage}
+                                />
+                                <Link
+                                  page="Our Classes"
+                                  selectedPage={selectedPage}
+                                  setSelectedPage={setSelectedPage}
+                                />
+                                <Link 
+                                  page="Contact us"
+                                  selectedPage={selectedPage}
+                                  setSelectedPage={setSelectedPage}
+                                />
                             </div>
                             {/* Registering */}
                             <div className={`${flexBetween} gap-8`}>
