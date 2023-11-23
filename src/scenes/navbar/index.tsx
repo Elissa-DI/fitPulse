@@ -5,8 +5,7 @@ import Link from "./Link";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "@/shared/ActionButton";
-// import useMediaQuery from "@/hooks/useMediaQuery";
-// import ActionButton from "@/shared/ActionButton";
+import { motion } from "framer-motion";
 
 
 type Props = {
@@ -84,7 +83,16 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
             </button>
           </div>
           {/* MENU ITEMS */}
-          <div className="ml-[33%] flex flex-col gap-10 text-2xl">
+          <motion.div
+            className="ml-[33%] flex flex-col gap-10 text-2xl"
+            initial="hidden"
+            whileInView="visible"
+            transition={{delay: 0.4, duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { opacity: 1, x: 0 },
+            }}
+          >
             <Link
               page="Home"
               selectedPage={selectedPage}
@@ -105,7 +113,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
-          </div>
+          </motion.div>
         </div>
       )}
     </nav>

@@ -50,10 +50,16 @@ const Home = ({ setSelectedPage }: Props) => {
                   alt="bulb_svg"
                   className="absolute bottom-2 -right-2 h-12 md:bottom-2 md:right-0 md:h-14"
                   style={{ rotate: 30 }}
-                  initial="hidden"
+                  initial={{ scale: 0 }}
+                  animate={{ rotate: 1110, scale: 1 }}
                   whileInView="visible"
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ delay: 0.5, duration: 0.6 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 50,
+                    delay: 0.5,
+                    duration: 0.6
+                  }}
                   variants={{
                     hidden: { opacity: 0, y: -90 },
                     visible: { opacity: 1, y: 0 },
@@ -91,11 +97,11 @@ const Home = ({ setSelectedPage }: Props) => {
               </ActionButton>
             </motion.div>
             <motion.div
-             transition={{ delay: 0.7, duration: 0.5 }}
-             variants={{
-               hidden: { opacity: 0, x: 70 },
-               visible: { opacity: 1, x: 0 },
-             }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+              variants={{
+                hidden: { opacity: 0, x: 70 },
+                visible: { opacity: 1, x: 0 },
+              }}
             >
               <AnchorLink
                 className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
@@ -108,9 +114,19 @@ const Home = ({ setSelectedPage }: Props) => {
           </motion.div>
         </div>
         {/* Image */}
-        <div className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:t-16 md:justify-items-end">
+        <motion.div
+          className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:t-16 md:justify-items-end"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ delay: 0.8, duration: 1.5 }}
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+        >
           <img src={HomePageGraphic} alt="home-page_graphic" />
-        </div>
+        </motion.div>
       </motion.div>
       {/* Sponsors */}
       {isAboveMediumScreens && (
