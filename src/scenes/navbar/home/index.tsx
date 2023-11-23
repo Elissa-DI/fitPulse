@@ -23,23 +23,21 @@ const Home = ({ setSelectedPage }: Props) => {
       className="gap-16 bg-gray-20 pb-10 pt-10 md:h-full md:pb-0"
     >
       {/* Image and main header */}
-      <div>
+      <div className="md:flex mx-auto w-5/6 items-center justify-center md:h-5/6">
         {/* Main header */}
-        <div>
+        <div className="z-10 mt-32 md:basis-3/5">
           {/* Headings */}
-          <div>
-            <div>
-              <div>
+          <div className="md:-mt-20">
+            <div className="relative">
+              <div className="before:absolute before:-top-20 before:-left-20 before:z-[-1] md:before:content-evolvetext">
                 <img src={HomePageText} alt="home-page-text" />
               </div>
             </div>
-
             <p>
               Unrivaled Gym. Unparalleled Training Fitness Classes. World Class
               Studios to get the Body Shapes That you Dream of.. Get Your Dream
               Body Now.
             </p>
-
           </div>
           {/* Actions */}
           <div>
@@ -57,9 +55,21 @@ const Home = ({ setSelectedPage }: Props) => {
         </div>
         {/* Image */}
         <div>
-          
+          <img src={HomePageGraphic} alt="home-page_graphic" />          
         </div>
       </div>
+      {/* Sponsors */}
+      {isAboveMediumScreens && (
+        <div>
+          <div>
+            <div>
+              <img src={SponsorRedBull} alt="Redbull" />
+              <img src={SponsorForbes} alt="Forbes" />
+              <img src={SponsorFortune} alt="Fortune" />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
