@@ -1,3 +1,4 @@
+import * as React from "react";
 import useMediaQuery from "@/hooks/useMediaQuery"
 import { SelectedPage } from "@/shared/types"
 import ActionButton from "@/shared/ActionButton"
@@ -17,6 +18,25 @@ type Props = {
 
 const Home = ({ setSelectedPage }: Props) => {
   const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.5
+      }
+    }
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
 
   return (
     <section
@@ -121,8 +141,8 @@ const Home = ({ setSelectedPage }: Props) => {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ delay: 0.8, duration: 1.5 }}
           variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: 50, x: 70 },
+            visible: { opacity: 1, y: 0, x: 0 },
           }}
         >
           <img src={HomePageGraphic} alt="home-page_graphic" />
@@ -132,11 +152,16 @@ const Home = ({ setSelectedPage }: Props) => {
       {isAboveMediumScreens && (
         <div className="h-[150px] w-full bg-primary-100 py-10">
           <div className="mx-auto w-5/6 flex justify-center">
-            <div className="flex w-3/5 items-center justify-between gap-8">
-              <img alt="redbull-sponsor" src={SponsorRedBull} />
-              <img alt="forbes-sponsor" src={SponsorForbes} />
-              <img alt="fortune-sponsor" src={SponsorFortune} />
-            </div>
+            <motion.div
+              className="flex w-3/5 items-center justify-between gap-8"
+              variants={container}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.img alt="redbull-sponsor" src={SponsorRedBull} variants={item}/>
+              <motion.img alt="forbes-sponsor" src={SponsorForbes} variants={item}/>
+              <motion.img alt="fortune-sponsor" src={SponsorFortune} variants={item}/>
+            </motion.div>
           </div>
         </div>
       )}
