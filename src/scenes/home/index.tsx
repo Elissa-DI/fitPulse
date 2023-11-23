@@ -1,4 +1,3 @@
-import * as React from "react";
 import useMediaQuery from "@/hooks/useMediaQuery"
 import { SelectedPage } from "@/shared/types"
 import ActionButton from "@/shared/ActionButton"
@@ -158,9 +157,9 @@ const Home = ({ setSelectedPage }: Props) => {
               initial="hidden"
               animate="visible"
             >
-              <motion.img alt="redbull-sponsor" src={SponsorRedBull} variants={item}/>
-              <motion.img alt="forbes-sponsor" src={SponsorForbes} variants={item}/>
-              <motion.img alt="fortune-sponsor" src={SponsorFortune} variants={item}/>
+              <motion.img alt="redbull-sponsor" src={SponsorRedBull} variants={item} />
+              <motion.img alt="forbes-sponsor" src={SponsorForbes} variants={item} />
+              <motion.img alt="fortune-sponsor" src={SponsorFortune} variants={item} />
             </motion.div>
           </div>
         </div>
