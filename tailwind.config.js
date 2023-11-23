@@ -27,7 +27,7 @@ export default {
         montserrat: ["Montserrat", "sans-serif"],
       },
       content: {
-        evolvetext: "url('./assets/EvolveText.png')",
+        evolvetext: "url('./assets/PulseText.png')",
         abstractwaves: "url('./assets/AbstractWaves.png')",
         sparkles: "url('./assets/Sparkles.png')",
         circles: "url('./assets/Circles.png')",
@@ -37,6 +37,9 @@ export default {
       xs: "480px",
       sm: "768px",
       md: "1060px",
+    },
+    rotate: {
+      '30': '30deg',
     },
   },
   plugins: [],
