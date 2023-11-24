@@ -11,6 +11,9 @@ import { motion } from "framer-motion";
 import Benefit from "./Benefit";
 import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
 import Mickey from "@/assets/mickey.svg"
+import Fist from "@/assets/fist.svg"
+// CSS
+import "./benefits.css"
 
 const benefits: Array<BenefitType> = [
   {
@@ -56,13 +59,13 @@ const Benefits = ({ setSelectedPage }: Props) => {
     >
       {/* Mickey_svg */}
       <motion.div
-        className="animate-pulse hidden md:block md:absolute md:right-60 md:-z-20 md:w-80 md:h-80"
+        className="hidden md:block md:absolute md:right-60 md:-z-20 md:w-80 md:h-80"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
         transition={{ delay: 0.3, duration: 3 }}
         variants={{
-          hidden: { opacity: 0, y: -40  },
+          hidden: { opacity: 0, y: -30  },
           visible: { opacity: 1, y: 0 },
         }}
       >
@@ -141,6 +144,9 @@ const Benefits = ({ setSelectedPage }: Props) => {
             </div>
           </div>
 
+            <div className="absolute right-24 w-52 h-40 -z-30 rotate-40 opacity-70">
+              <img src={Fist} alt="fist_svg" />
+            </div>
           {/* DESCRIPT */}
           <motion.div
             initial="hidden"
