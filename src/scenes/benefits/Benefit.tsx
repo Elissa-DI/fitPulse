@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const childVariant = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, scale: 0.8},
   visible: { opacity: 1, scale: 1 },
 };
 
